@@ -1,0 +1,209 @@
+/* --- CSS COMPLETO E RESPONSIVO --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 1. FUNDO DA PÁGINA E CENTRALIZAÇÃO */
+body {
+    background-color: #8ec5fc;
+    background-image: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    transition: background-image 0.5s ease;
+}
+
+/* 2. FORMAS FLUTUANTES */
+.background-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: 0;
+    animation: float 8s infinite ease-in-out;
+}
+.shape-1 { width: 350px; height: 350px; background: #a18cd1; top: -50px; left: -50px; opacity: 0.6; }
+.shape-2 { width: 300px; height: 300px; background: #fbc2eb; bottom: -50px; right: -50px; opacity: 0.6; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(30px); }
+}
+
+/* 3. O CONTAINER DE VIDRO (Glassmorphism) */
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%; 
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+/* 4. ESTILOS DE TEXTO E ÍCONE */
+header { text-align: center; margin-bottom: 30px; }
+
+.logo-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+h1 { font-size: 1.8rem; color: #333; }
+p { color: #666; font-size: 0.9rem; }
+
+/* 5. INPUTS E BOTÃO */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+.input-wrapper { display: flex; flex-direction: column; }
+label { font-size: 0.85rem; color: #333; margin-bottom: 8px; font-weight: 600; }
+label i { color: #6a11cb; margin-right: 5px; }
+
+input {
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: #f0f3f8;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #2575fc;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.1);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 20px rgba(37, 117, 252, 0.2);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(37, 117, 252, 0.3); }
+
+/* 6. ESTILOS DE RESULTADO */
+.resultado-box { 
+    margin-top: 30px; 
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5); /* Fundo sutil para a caixa de resultado */
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+.resultado-box.hidden { display: none; }
+
+.imc-display { font-size: 2.5rem; font-weight: 700; color: #333; }
+.categoria-display { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
+.mensagem-saude { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+
+
+/* 7. ESTILOS DO GRÁFICO DE IMC */
+.imc-chart-wrapper {
+    position: relative;
+    width: 90%; /* Ajusta a largura dentro da caixa */
+    margin: 0 auto 10px;
+    height: 50px;
+}
+
+.imc-chart-bar {
+    display: flex;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faixa {
+    flex-grow: 1; /* Distribui o espaço igualmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+/* Cores das Faixas */
+.faixa-magreza { background-color: #f1c40f; } /* Amarelo */
+.faixa-normal { background-color: #27ae60; } /* Verde */
+.faixa-sobrepeso { background-color: #f39c12; } /* Laranja */
+.faixa-obesidade { background-color: #e74c3c; } /* Vermelho */
+
+.chart-marker {
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 50px; /* Mais alto que a barra */
+    background-color: #333;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-out; /* Adiciona transição suave */
+    transform: translateX(-50%); /* Centraliza a linha no ponto exato */
+}
+
+/* 8. HISTÓRICO */
+.historico-section { margin-top: 35px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; }
+.historico-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.historico-header h2 { font-size: 1rem; color: #333; }
+.btn-icon { background: none; border: none; cursor: pointer; color: #999; font-size: 1rem; }
+
+#historico-lista { list-style: none; max-height: 200px; overflow-y: auto; padding: 0; }
+#historico-lista li {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* 9. RESPONSIVIDADE (MEDIA QUERIES) */
+@media (max-width: 480px) {
+    .container { 
+        padding: 25px; 
+    }
+    
+    /* Faz com que os inputs de Peso e Altura fiquem em pilha (1 coluna) */
+    .input-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .faixa {
+        font-size: 0.5rem; /* Fonte menor no gráfico para caber */
+    }
+}
