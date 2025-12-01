@@ -23,12 +23,7 @@ Exibe mensagens de saúde e a categoria de peso correspondente ao IMC calculado.
 **Como Executar o Projeto**
 É muito fácil rodar este projeto no seu ambiente local:
 
-1- Clone o Repositório:
-git clone https://github.com/BrunoRealTavares/Calculadora-de-IMC-Projeto-Final.git
-
-2- Abra o Arquivo: Navegue até a pasta clonada e simplesmente abra o arquivo index.html em qualquer navegador (Chrome, Firefox, etc.).
-
-3- O projeto será carregado instantaneamente, pois não requer dependências de backend (Node.js)
+https://brunorealtavares.github.io/Calculadora-de-IMC-Projeto-Final/
 
 **Demonstração do Design**
 <img src="assets/screenshot-imc.png" alt="Calculadora IMC Premium em modo responsivo com efeito glassmorphism e gráfico de barras">
